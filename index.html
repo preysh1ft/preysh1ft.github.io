@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Missed Calls - preysh1ft</title>
+<meta name="theme-color" content="#0a0a0a">
+
 <style>
   * {
     margin: 0;
@@ -12,11 +14,11 @@
   }
 
   body {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     font-family: 'Helvetica Neue', sans-serif;
     color: #fff;
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,7 +27,6 @@
     position: relative;
   }
 
-  /* Background blur z coveru */
   body::before {
     content: '';
     position: absolute;
@@ -45,49 +46,65 @@
     flex-direction: column;
     align-items: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 600px;
   }
 
-  /* OUT NOW */
+  /* Fade-in animácia */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .fade-in.delay-1 {
+    animation-delay: 0.3s;
+  }
+  .fade-in.delay-2 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
   .out-now {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 900;
-    color: #FE0000; /* kontrastný červený odtieň */
+    color: #FE0000;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     text-shadow: 0 2px 8px rgba(0,0,0,0.7);
   }
 
-  /* Hlavný cover jemne menší */
   .cover {
-    width: 90%;
+    width: 100%;
     height: auto;
     border-radius: 12px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
     text-align: center;
   }
 
   .artist {
-    font-size: 1rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     font-weight: 300;
-    margin-bottom: 25px;
+    margin-bottom: 2rem;
     text-align: center;
     opacity: 0.8;
   }
 
-  /* Ikonky rovnaké, zmestia sa do jedného riadku */
   .platforms {
     display: flex;
     justify-content: center;
     gap: 10px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .platforms a img {
@@ -101,23 +118,22 @@
     filter: brightness(1.2);
   }
 
-  /* Responsive tweaks */
-  @media (max-width: 375px) {
-    .cover {
-      width: 85%;
-    }
-    .out-now {
-      font-size: 1.6rem;
-    }
-    .title {
-      font-size: 1.6rem;
-    }
-    .artist {
-      font-size: 0.9rem;
-    }
+  @media (max-width: 480px) {
     .platforms a img {
       width: 35px;
       height: 35px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .out-now {
+      font-size: 1.5rem;
+    }
+    .title {
+      font-size: 1.4rem;
+    }
+    .artist {
+      font-size: 0.9rem;
     }
   }
 </style>
@@ -126,17 +142,17 @@
 
 <div class="content">
   <!-- OUT NOW -->
-  <div class="out-now">OUT NOW</div>
+  <div class="out-now fade-in delay-1">OUT NOW</div>
 
   <!-- Cover -->
-  <img src="cover.png" alt="Missed Calls Cover" class="cover">
+  <img src="cover.png" alt="Missed Calls Cover" class="cover fade-in delay-2">
 
   <!-- Text -->
-  <div class="title">Missed Calls</div>
-  <div class="artist">preysh1ft</div>
+  <div class="title fade-in delay-2">Missed Calls</div>
+  <div class="artist fade-in delay-2">preysh1ft</div>
 
   <!-- Platforms -->
-  <div class="platforms">
+  <div class="platforms fade-in delay-2">
     <a href="https://open.spotify.com/track/0fyammimsjhzCLgUfBBC4E?si=66fa33277485444e" target="_blank"><img src="icons/spotify.png" alt="Spotify"></a>
     <a href="https://music.apple.com/sk/album/missed-calls-single/1872872321?l=sk" target="_blank"><img src="icons/apple-music.png" alt="Apple Music"></a>
     <a href="https://youtu.be/_cUgMYOguDw?si=9J_JpjMNjrJBCZgq" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
