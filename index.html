@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missed Calls - preysh1ft</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Helvetica Neue', sans-serif;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    position: relative;
+  }
+
+  /* Background blur z coveru */
+  body::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: url('cover.png') center/cover no-repeat;
+    filter: blur(40px) brightness(0.3);
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  /* OUT NOW */
+  .out-now {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #FE0000; /* kontrastný červený odtieň */
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+
+  /* Hlavný cover jemne menší */
+  .cover {
+    width: 90%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .artist {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  /* Ikonky rovnaké, zmestia sa do jedného riadku */
+  .platforms {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .platforms a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.2s, filter 0.2s;
+  }
+
+  .platforms a img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 375px) {
+    .cover {
+      width: 85%;
+    }
+    .out-now {
+      font-size: 1.6rem;
+    }
+    .title {
+      font-size: 1.6rem;
+    }
+    .artist {
+      font-size: 0.9rem;
+    }
+    .platforms a img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="content">
+  <!-- OUT NOW -->
+  <div class="out-now">OUT NOW</div>
+
+  <!-- Cover -->
+  <img src="cover.png" alt="Missed Calls Cover" class="cover">
+
+  <!-- Text -->
+  <div class="title">Missed Calls</div>
+  <div class="artist">preysh1ft</div>
+
+  <!-- Platforms -->
+  <div class="platforms">
+    <a href="https://open.spotify.com/" target="_blank"><img src="icons/spotify.png" alt="Spotify"></a>
+    <a href="https://music.apple.com/" target="_blank"><img src="icons/apple-music.png" alt="Apple Music"></a>
+    <a href="https://www.youtube.com/" target="_blank"><img src="icons/youtube.png" alt="YouTube"></a>
+    <a href="https://music.youtube.com/" target="_blank"><img src="icons/youtube-music.png" alt="YouTube Music"></a>
+    <a href="https://www.deezer.com/" target="_blank"><img src="icons/deezer.png" alt="Deezer"></a>
+    <a href="https://tidal.com/" target="_blank"><img src="icons/tidal.webp" alt="Tidal"></a>
+    <a href="https://soundcloud.com/" target="_blank"><img src="icons/soundcloud.png" alt="SoundCloud"></a>
+  </div>
+</div>
+
+</body>
+</html>
