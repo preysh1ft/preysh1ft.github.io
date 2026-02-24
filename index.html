@@ -13,27 +13,30 @@
     box-sizing: border-box;
   }
 
-  body {
-    min-height: 100vh;
+  html, body {
+    height: 100%;
     width: 100%;
+    overflow: hidden; /* zabráni scrollovaniu */
+  }
+
+  body {
     font-family: 'Helvetica Neue', sans-serif;
     color: #fff;
-    overflow-x: hidden;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background: #0a0a0a; /* tmavé pozadie */
     position: relative;
   }
 
+  /* Background blur z coveru */
   body::before {
     content: '';
     position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url('cover.png') center/cover no-repeat;
     filter: blur(40px) brightness(0.3);
     z-index: 0;
@@ -47,6 +50,7 @@
     align-items: center;
     width: 90%;
     max-width: 600px;
+    min-width: 280px;
   }
 
   /* Fade-in animácia */
@@ -54,20 +58,14 @@
     opacity: 0;
     animation: fadeIn 1s ease forwards;
   }
-
-  .fade-in.delay-1 {
-    animation-delay: 0.3s;
-  }
-  .fade-in.delay-2 {
-    animation-delay: 0.6s;
-  }
+  .fade-in.delay-1 { animation-delay: 0.3s; }
+  .fade-in.delay-2 { animation-delay: 0.6s; }
 
   @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
+    to { opacity: 1; }
   }
 
+  /* OUT NOW */
   .out-now {
     font-size: clamp(1.5rem, 5vw, 2.5rem);
     font-weight: 900;
@@ -77,8 +75,11 @@
     text-shadow: 0 2px 8px rgba(0,0,0,0.7);
   }
 
+  /* Hlavný cover s min a max šírkou */
   .cover {
     width: 100%;
+    max-width: 400px; /* maximum na veľkých displejoch */
+    min-width: 250px; /* minimum na malých */
     height: auto;
     border-radius: 12px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.8);
@@ -100,10 +101,11 @@
     opacity: 0.8;
   }
 
+  /* Ikonky s väčším gapom */
   .platforms {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px; /* väčší odstup */
     flex-wrap: wrap;
   }
 
@@ -118,23 +120,14 @@
     filter: brightness(1.2);
   }
 
+  /* Responzívne */
   @media (max-width: 480px) {
-    .platforms a img {
-      width: 35px;
-      height: 35px;
-    }
+    .platforms a img { width: 35px; height: 35px; }
   }
-
   @media (max-width: 360px) {
-    .out-now {
-      font-size: 1.5rem;
-    }
-    .title {
-      font-size: 1.4rem;
-    }
-    .artist {
-      font-size: 0.9rem;
-    }
+    .out-now { font-size: 1.5rem; }
+    .title { font-size: 1.4rem; }
+    .artist { font-size: 0.9rem; }
   }
 </style>
 </head>
